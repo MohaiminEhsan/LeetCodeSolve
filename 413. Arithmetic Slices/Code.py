@@ -5,21 +5,20 @@ class Solution(object):
         :rtype: int
         """
         arr = []
-        temp1 = 1
-        temp2 = 1
-        temp11 = 1
-        temp22 = 1
+    
         l = len(nums)
-        for i in range(1,l+1):
-            temp1 = temp1*i
-        for i in range(1,l):
-            temp2 = temp2*i
-        for i in range(1,l-3+1):
-            temp11 = temp11*i
-        for i in range(1,l-3):
-            temp22 = temp22*i
+        index = 0
+        for i in nums:
+            if index<2:
+                arr.append(0)
+            else:
+                if nums[index]-nums[index-1] == nums[index-1]-nums[index-2]:
+                    arr.append(arr[index-1]+1)
+                else:
+                    arr.append(0)
+            index = index+1
+        total = 0
+        for i in arr:
+            total = total + i
         
-        fact1 = temp1 / (6*temp11)
-        fact2 = temp2 / (6*temp22)
-
-        return fact1-fact2
+        return total
