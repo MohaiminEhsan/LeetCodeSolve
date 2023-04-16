@@ -9,7 +9,7 @@ class Solution(object):
         index2 = 0
 
         l = len(nums)
-        for i in range (0, l-1):
+        for i in range (0, l):
             for j in range(i+1,l):
                 number = nums[i] + nums[j]
                 print (i, j)
@@ -21,7 +21,22 @@ class Solution(object):
                 
         arr = [index1, index2]
         return arr
+           
+
             
+# ==============> this gives TLE For some reason
+
+        ls = len(nums)
+        for i in range(ls):
+            for j in range(i + 1, ls):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
+                
+                
+                
+# ------------------> For less time Complexity
+
+
 
 
 
